@@ -11,7 +11,7 @@ resource "google_service_account_iam_binding" "wif" {
 
 # Per-repo custom role containing exactly the permissions needed to
 # plan/apply this module's examples — nothing more.
-resource "google_project_iam_custom_role" "role" {
+resource "google_project_iam_custom_role" "ci_permissions" {
   count = length(var.permissions) > 0 ? 1 : 0
 
   project     = var.project
@@ -26,6 +26,6 @@ resource "google_project_iam_member" "custom_role" {
   count = length(var.permissions) > 0 ? 1 : 0
 
   project = var.project
-  role    = google_project_iam_custom_role.role[0].id
+  role    = google_project_iam_custom_role.ci_permissions[0].id
   member  = "serviceAccount:${google_service_account.sa.email}"
 }

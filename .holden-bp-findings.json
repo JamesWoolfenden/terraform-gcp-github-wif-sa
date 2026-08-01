@@ -1,0 +1,23 @@
+{
+  "scan_date": "2026-07-31T00:00:00Z",
+  "scan_path": ".",
+  "findings": [
+    {
+      "id": "HOLDEN_BP_001",
+      "status": "suppressed",
+      "first_seen": "2026-07-31",
+      "last_seen": "2026-07-31",
+      "principle": "repeatability",
+      "severity": "LOW",
+      "confidence": "high",
+      "title": "Root module has no required_providers / required_version constraint",
+      "file": "(intentionally absent)",
+      "line": 0,
+      "resource": "module root",
+      "explanation": "The root module has no terraform{} block declaring required_providers or required_version. This was initially flagged and fixed, but the user's stated convention for this repo is that reusable/child modules should not carry their own terraform{} block at all — only the calling root module declares required_providers/required_version. The example under example/examplea/terraform.tf still does this correctly, which is the intended place for it.",
+      "remediation": "No action — suppressed per user preference. Do not add a terraform.tf/versions.tf to this module root in future scans.",
+      "fixable": false
+    }
+  ],
+  "suggested_policies": []
+}
