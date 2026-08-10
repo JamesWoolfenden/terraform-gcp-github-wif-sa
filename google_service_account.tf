@@ -3,4 +3,3 @@ resource "google_service_account" "sa" {
   account_id   = local.sa_id
   display_name = local.sa_display
 }
-

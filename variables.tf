@@ -21,7 +21,7 @@ variable "wif_pool_name" {
   type        = string
   description = "Full resource name of the Workload Identity Pool, e.g. projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID."
   validation {
-    condition     = length(var.wif_pool_name)> 0
+    condition     = length(var.wif_pool_name) > 0
     error_message = "pool name cannot be empty"
   }
 }
@@ -29,14 +29,14 @@ variable "wif_pool_name" {
 # holden:ignore:HLD_TF_021
 variable "permissions" {
   type        = list(string)
-  description = "Exact GCP IAM permissions to grant via a per-repo custom role. Generate with: pike make -d <module-root> -p gcp"
+  description = "Exact GCP IAM permissions to grant via a per-repo custom role. Generate with: pike make -d `<module-root>` -p gcp"
 }
 
 variable "description" {
   type        = string
-  description =  "human-readable description for the service account."
+  description = "human-readable description for the service account."
   validation {
-    condition     = length(var.description)> 0
+    condition     = length(var.description) > 0
     error_message = "description cannot be empty"
   }
 }

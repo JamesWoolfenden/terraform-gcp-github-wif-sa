@@ -60,7 +60,7 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
-| [google_project_iam_custom_role.role](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_custom_role) | resource |
+| [google_project_iam_custom_role.ci_permissions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_custom_role) | resource |
 | [google_project_iam_member.custom_role](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_service_account.sa](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_service_account_iam_binding.wif](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_binding) | resource |
@@ -69,8 +69,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
-| <a name="input_description"></a> [description](#input\_description) | Optional human-readable description for the service account. | `string` | `""` | no |
-| <a name="input_permissions"></a> [permissions](#input\_permissions) | Exact GCP IAM permissions to grant via a per-repo custom role. Generate with: pike make -d <module-root> -p gcp | `list(string)` | `[]` | no |
+| <a name="input_description"></a> [description](#input\_description) | human-readable description for the service account. | `string` | n/a | yes |
+| <a name="input_permissions"></a> [permissions](#input\_permissions) | Exact GCP IAM permissions to grant via a per-repo custom role. Generate with: pike make -d `<module-root>` -p gcp | `list(string)` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | GCP project ID where the service account and IAM bindings are created. | `string` | n/a | yes |
 | <a name="input_repo"></a> [repo](#input\_repo) | GitHub repository in 'owner/name' format (e.g. 'JamesWoolfenden/terraform-gcp-storage'). | `string` | n/a | yes |
 | <a name="input_wif_pool_name"></a> [wif\_pool\_name](#input\_wif\_pool\_name) | Full resource name of the Workload Identity Pool, e.g. projects/PROJECT\_NUMBER/locations/global/workloadIdentityPools/POOL\_ID. | `string` | n/a | yes |
@@ -81,7 +81,6 @@ No modules.
 | ---- | ----------- |
 | <a name="output_email"></a> [email](#output\_email) | Service account email — pass this as the service\_account input to the reusable GCP workflow. |
 | <a name="output_name"></a> [name](#output\_name) | Fully-qualified service account resource name. |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related

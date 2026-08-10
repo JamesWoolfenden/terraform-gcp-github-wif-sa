@@ -6,5 +6,5 @@ module "github_wif_sa" {
   repo          = var.repo
   wif_pool_name = var.wif_pool_name
   permissions   = var.permissions
-  description ="description for the wif pool"
+  description   = "description for the wif pool"
 }
