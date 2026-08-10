@@ -38,13 +38,15 @@ repos:
         language_version: python3.11
       - id: tf2docs
         language_version: python3.11
-  - repo: https://github.com/bridgecrewio/checkov
-    rev: 50aa413a42dee68ddafcb02b67d32770b322845c # 3.2.529
+  - repo: local
     hooks:
-      - id: checkov
-        files: .
-        verbose: true
-        entry: checkov -d example/examplea --external-checks-dir checkov --download-external-modules true --compact
+      - id: holden
+        name: holden
+        description: Scan Terraform (and CI/CD config) for policy violations
+        language: system
+        entry: holden scan .
+        pass_filenames: false
+        types: [ terraform ]
   - repo: https://github.com/jameswoolfenden/pike
     rev: 4ce4b7087eee510c1ca1ad8250d3e9e5969363f8 # v0.4.7
     hooks:
