@@ -18,5 +18,3 @@ jobs:
   # holden:ignore:HLD_CI_017 — trusted first-party reusable workflow (own org)
   verify:
     uses: JamesWoolfenden/.github/.github/workflows/terraform-verify-gcp.yml@main
-    with:
-      service_account: terraform-gcp-github-wif-sa@pike-477416.iam.gserviceaccount.com
