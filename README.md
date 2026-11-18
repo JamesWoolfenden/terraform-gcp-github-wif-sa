@@ -86,3 +86,49 @@ No modules.
 ## Related
 
 - [terraform-gcp-iam](https://github.com/JamesWoolfenden/terraform-gcp-iam) — project-level IAM bindings
+
+## Role and Permissions
+
+<!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
+The Terraform resource required is:
+
+```golang
+# apply role
+resource "google_project_iam_custom_role" "terraform_pike" {
+  project     = "pike-477416"
+  role_id     = "terraform_pike"
+  title       = "terraform_pike"
+  description = "A user with least privileges"
+  permissions = [
+    "iam.roles.create",
+    "iam.roles.delete",
+    "iam.roles.get",
+    "iam.roles.update",
+    "iam.serviceAccounts.create",
+    "iam.serviceAccounts.delete",
+    "iam.serviceAccounts.get",
+    "iam.serviceAccounts.getIamPolicy",
+    "iam.serviceAccounts.setIamPolicy",
+    "iam.serviceAccounts.update",
+    "resourcemanager.projects.getIamPolicy",
+    "resourcemanager.projects.setIamPolicy"
+  ]
+}
+
+# plan role
+resource "google_project_iam_custom_role" "terraform_pike_plan" {
+  project     = "pike-477416"
+  role_id     = "terraform_pike_plan"
+  title       = "terraform_pike_plan"
+  description = "A user with least privileges"
+  permissions = [
+    "iam.roles.get",
+    "iam.serviceAccounts.get",
+    "iam.serviceAccounts.getIamPolicy",
+    "resourcemanager.projects.getIamPolicy"
+  ]
+}
+
+
+```
+<!-- END OF PRE-COMMIT-PIKE DOCS HOOK -->
